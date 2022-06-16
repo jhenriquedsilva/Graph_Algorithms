@@ -1,0 +1,7 @@
+/out/production/graph_algorithms/componentes_grafo/*.class
+/out/production/graph_algorithms/grafo_com_lista_adjacencia/*.class
+/out/production/graph_algorithms/*.class
+
+# Default ignored files
+libraries/shelf/
+libraries/workspace.xml
