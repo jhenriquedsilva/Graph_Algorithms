@@ -10,6 +10,8 @@ import componentes_grafo.Vertice
 
 class MatrizAdjacencia<T>: Grafo<T> {
     private val vertices = arrayListOf<Vertice<T>>()
+    override val todosVertices: ArrayList<Vertice<T>>
+        get() = vertices
     // Matriz de adjacencia para guardar as arestas e pesos
     private val pesos = arrayListOf<ArrayList<Double?>>()
 

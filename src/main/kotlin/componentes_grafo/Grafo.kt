@@ -3,6 +3,7 @@ package componentes_grafo
 import FilaPilha
 
 interface Grafo<T> {
+    val todosVertices: ArrayList<Vertice<T>>
     // Cria um vértice e adiciona no grafo
     fun criarVertice(dado: T): Vertice<T>
 
@@ -81,5 +82,18 @@ interface Grafo<T> {
         }
 
         return visitados
+    }
+
+    fun eDesconexo(): Boolean {
+        val primeiroVertice = todosVertices.firstOrNull() ?: return false
+
+        val visitados = buscaEmLargura(primeiroVertice)
+        todosVertices.forEach { vertice ->
+            // Se um dos vértices não foi visitado,
+            // então o grafo é desconexo
+            if (!visitados.contains(vertice)) return true
+        }
+
+        return false
     }
 }

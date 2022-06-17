@@ -8,6 +8,8 @@ import componentes_grafo.Vertice
 class ListaAdjacencia<T>: Grafo<T> {
 
     private val adjacencias: HashMap<Vertice<T>, ArrayList<Aresta<T>>> = HashMap()
+    override val todosVertices: ArrayList<Vertice<T>>
+        get() = ArrayList(adjacencias.keys)
 
     // Cria um vértice e o retorna
     override fun criarVertice(dado: T): Vertice<T> {
