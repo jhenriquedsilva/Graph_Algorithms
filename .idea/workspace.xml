@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19d8da62-bbf8-4563-bdeb-b877d41cf3d7" name="Changes" comment="chore: adicona arquivo de configuração">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="19d8da62-bbf8-4563-bdeb-b877d41cf3d7" name="Changes" comment="feat: adiciona exemplo na main">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/componentes_grafo/Grafo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/componentes_grafo/Grafo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/grafo_com_lista_adjacencia/ListaAdjacencia.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/grafo_com_lista_adjacencia/ListaAdjacencia.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/grafo_com_matriz_de_adjacencia/MatrizAdjacencia.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/grafo_com_matriz_de_adjacencia/MatrizAdjacencia.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,7 +148,35 @@
       <option name="project" value="LOCAL" />
       <updated>1655422109312</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="feat: adiciona método para fazer busca em largura">
+      <created>1655497845711</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1655497845711</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat: cria fila">
+      <created>1655497939515</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1655497939515</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat: cria ref">
+      <created>1655497953716</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1655497953716</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat: adiciona exemplo na main">
+      <created>1655497980007</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1655497980007</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -171,6 +200,10 @@
     <MESSAGE value="feat: implementa grafo com uma matriz de adjacencia" />
     <MESSAGE value="feat: roda um exemplo na main" />
     <MESSAGE value="chore: adicona arquivo de configuração" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: adicona arquivo de configuração" />
+    <MESSAGE value="feat: adiciona método para fazer busca em largura" />
+    <MESSAGE value="feat: cria fila" />
+    <MESSAGE value="feat: cria ref" />
+    <MESSAGE value="feat: adiciona exemplo na main" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: adiciona exemplo na main" />
   </component>
 </project>
