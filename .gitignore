@@ -5,3 +5,4 @@
 # Default ignored files
 libraries/shelf/
 libraries/workspace.xml
+/out/production/graph_algorithms/grafo_com_matriz_de_adjacencia/*.class
