@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19d8da62-bbf8-4563-bdeb-b877d41cf3d7" name="Changes" comment="chore: adiciona arquivos de configuração">
+    <list default="true" id="19d8da62-bbf8-4563-bdeb-b877d41cf3d7" name="Changes" comment="chore: adicona arquivo de configuração">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/grafo_com_matriz_de_adjacencia/MatrizAdjacencia.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/grafo_com_matriz_de_adjacencia/MatrizAdjacencia.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +126,28 @@
       <option name="project" value="LOCAL" />
       <updated>1655416358794</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: implementa grafo com uma matriz de adjacencia">
+      <created>1655421989774</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1655421989774</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: roda um exemplo na main">
+      <created>1655422078121</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1655422078121</updated>
+    </task>
+    <task id="LOCAL-00009" summary="chore: adicona arquivo de configuração">
+      <created>1655422109312</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1655422109312</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -146,6 +168,9 @@
     <MESSAGE value="feat: cria interface para o grafo" />
     <MESSAGE value="feat: implementa grafo com lista de adjacência" />
     <MESSAGE value="feat: executa um exemplo de grafo" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: executa um exemplo de grafo" />
+    <MESSAGE value="feat: implementa grafo com uma matriz de adjacencia" />
+    <MESSAGE value="feat: roda um exemplo na main" />
+    <MESSAGE value="chore: adicona arquivo de configuração" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: adicona arquivo de configuração" />
   </component>
 </project>
