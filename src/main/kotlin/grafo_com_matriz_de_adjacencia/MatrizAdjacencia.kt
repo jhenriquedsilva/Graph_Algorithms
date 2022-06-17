@@ -65,15 +65,15 @@ class MatrizAdjacencia<T>: Grafo<T> {
     }
 
     override fun toString(): String {
-        val verticesDescription = vertices
+        val descricaoVertices = vertices
             .joinToString(separator = "\n") { "${it.indice}: ${it.dado}" }
 
-        val grid = pesos.map { row ->
+        val matriz = pesos.map { linha ->
             buildString {
-                (0 until pesos.size).forEach { columnIndex ->
-                    val value = row[columnIndex]
-                    if (value != null) {
-                        append("$value\t")
+                (0 until pesos.size).forEach { indiceColuna ->
+                    val valor = linha[indiceColuna]
+                    if (valor != null) {
+                        append("$valor\t")
                     } else {
                         append("ø\t\t")
                     }
@@ -81,7 +81,7 @@ class MatrizAdjacencia<T>: Grafo<T> {
             }
         }
 
-        val edgesDescription = grid.joinToString("\n")
-        return "$verticesDescription\n\n$edgesDescription"
+        val descricaoArestas = matriz.joinToString("\n")
+        return "$descricaoVertices\n\n$descricaoArestas"
     }
 }
