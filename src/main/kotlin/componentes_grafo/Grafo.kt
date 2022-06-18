@@ -104,6 +104,36 @@ interface Grafo<T> {
         return ordemVisitados
     }
 
+    fun possuiCiclo(origem: Vertice<T>): Boolean {
+        val empilhados = mutableSetOf<Vertice<T>>()
+        return possuiCiclo(origem, empilhados)
+    }
+
+    fun possuiCiclo(origem: Vertice<T>, empilhados: MutableSet<Vertice<T>>): Boolean {
+        // Para iniciar adiciona o vértice de origem
+        empilhados.add(origem)
+        val arestas = arestas(origem)
+        arestas.forEach { aresta ->
+            // Se um vértice adjacente não foi visitado ainda,
+            // buscar recursivamente por um ciclo nesse grafo
+            if (
+                aresta.destino !in empilhados &&
+                possuiCiclo(aresta.destino, empilhados)
+            ) {
+                return true
+              // Se o vértice de destino já foi visitado anteriormente,
+              // então tem-se um ciclo
+            } else if (aresta.destino in empilhados) {
+                return true
+            }
+        }
+        // Remover o vértice de origem para procurar outros caminhos que possuam
+        // ciclos
+        empilhados.remove(origem)
+        // Ciclos não foram encontrados
+        return false
+    }
+
     fun buscaEmLargura(origem: Vertice<T>): ArrayList<Vertice<T>> {
         // Ficam armazenados os próximos vértices que serão visitados
         val fila = FilaPilha<Vertice<T>>()
