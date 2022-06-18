@@ -1,6 +1,5 @@
 import componentes_grafo.TipoAresta
 import grafo_com_lista_adjacencia.ListaAdjacencia
-import grafo_com_matriz_de_adjacencia.MatrizAdjacencia
 
 fun main() {
 //    val graph = ListaAdjacencia<String>()
@@ -52,27 +51,32 @@ fun main() {
 //    graph.adicionar(TipoAresta.NAO_DIRECIONADO, austinTexas, sanFrancisco, 297.0)
 //    println(graph)
 
-    val graph = ListaAdjacencia<String>()
-    val a = graph.criarVertice("A")
-    val b = graph.criarVertice("B")
-    val c = graph.criarVertice("C")
-    val d = graph.criarVertice("D")
-    val e = graph.criarVertice("E")
-    val f = graph.criarVertice("F")
-    val g = graph.criarVertice("G")
-    val h = graph.criarVertice("H")
+    val grafo = ListaAdjacencia<String>()
+    val a = grafo.criarVertice("A")
+    val b = grafo.criarVertice("B")
+    val c = grafo.criarVertice("C")
+    val d = grafo.criarVertice("D")
+    val e = grafo.criarVertice("E")
+    val f = grafo.criarVertice("F")
+    val g = grafo.criarVertice("G")
+    val h = grafo.criarVertice("H")
 
-    graph.adicionar(TipoAresta.NAO_DIRECIONADO, a, b, null)
-    graph.adicionar(TipoAresta.NAO_DIRECIONADO, a, c, null)
-    graph.adicionar(TipoAresta.NAO_DIRECIONADO, a, d, null)
-    graph.adicionar(TipoAresta.NAO_DIRECIONADO, b, e, null)
-    graph.adicionar(TipoAresta.NAO_DIRECIONADO, c, f, null)
-    graph.adicionar(TipoAresta.NAO_DIRECIONADO, c, g, null)
-    graph.adicionar(TipoAresta.NAO_DIRECIONADO, e, h, null)
-    graph.adicionar(TipoAresta.NAO_DIRECIONADO, e, f, null)
-    graph.adicionar(TipoAresta.NAO_DIRECIONADO, f, g, null)
+    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, a, b, null)
+    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, a, c, null)
+    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, a, d, null)
+    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, b, e, null)
+    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, c, f, null)
+    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, c, g, null)
+    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, e, h, null)
+    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, e, f, null)
+    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, f, g, null)
 
-    val vertices = graph.buscaEmLargura(a)
+//    val vertices = graph.buscaEmLargura(a)
+//    vertices.forEach { vertice ->
+//        println(vertice.dado)
+//    }
+
+    val vertices = grafo.buscaEmProfundidade(a)
     vertices.forEach { vertice ->
         println(vertice.dado)
     }
