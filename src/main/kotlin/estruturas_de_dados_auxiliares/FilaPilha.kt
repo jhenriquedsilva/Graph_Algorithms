@@ -1,3 +1,5 @@
+package estruturas_de_dados_auxiliares
+
 class FilaPilha<T> : Fila<T> {
 
     private var pilhaEsquerda = arrayListOf<T>()

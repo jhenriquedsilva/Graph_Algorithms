@@ -1,3 +1,5 @@
+package estruturas_de_dados_auxiliares
+
 interface Pilha<T> {
 
     /**

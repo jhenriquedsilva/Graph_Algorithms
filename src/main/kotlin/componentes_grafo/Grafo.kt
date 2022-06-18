@@ -1,7 +1,7 @@
 package componentes_grafo
 
-import FilaPilha
-import PilhaImpl
+import estruturas_de_dados_auxiliares.FilaPilha
+import estruturas_de_dados_auxiliares.PilhaImpl
 
 interface Grafo<T> {
     val todosVertices: ArrayList<Vertice<T>>
