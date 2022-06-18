@@ -1,3 +1,5 @@
+package estruturas_de_dados_auxiliares
+
 interface Fila<T> {
 
     fun enfileirar(element: T): Boolean
