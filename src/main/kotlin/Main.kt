@@ -1,5 +1,6 @@
-import componentes_grafo.TipoAresta
+import componentes_grafo.TipoGrafo
 import grafo_com_lista_adjacencia.ListaAdjacencia
+import grafo_com_matriz_de_adjacencia.MatrizAdjacencia
 import prim.Prim
 
 fun main() {
@@ -105,24 +106,31 @@ fun main() {
 //        println("${aresta.origem.dado} --|${aresta.peso ?: 0.0}|--> ${aresta.destino.dado}")
 //    }
 
-    val grafo = ListaAdjacencia<Int>()
+    val grafo = ListaAdjacencia<Int>(TipoGrafo.NAO_DIRECIONADO)
+    val zero = grafo.criarVertice(0)
     val um = grafo.criarVertice(1)
     val dois = grafo.criarVertice(2)
     val tres = grafo.criarVertice(3)
     val quatro = grafo.criarVertice(4)
     val cinco = grafo.criarVertice(5)
-    val seis = grafo.criarVertice(6)
+    grafo.adicionar(zero, dois, 1.0)
+    grafo.adicionar( zero, tres, 5.0)
+    grafo.adicionar( zero, um, 6.0)
+    grafo.adicionar(dois, tres, 2.0)
+    grafo.adicionar(dois, um, 2.0)
+    grafo.adicionar(dois, quatro, 6.0)
+    grafo.adicionar(dois, cinco, 4.0)
+    grafo.adicionar(tres, cinco, 4.0)
+    grafo.adicionar(um, quatro, 5.0)
+    grafo.adicionar(quatro, cinco, 3.0)
 
-    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, um, dois, 6.0)
-    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, um, tres, 1.0)
-    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, um, quatro, 5.0)
-    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, dois, tres, 5.0)
-    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, dois, cinco, 3.0)
-    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, tres, quatro, 5.0)
-    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, tres, cinco, 6.0)
-    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, tres, seis, 4.0)
-    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, quatro, seis, 2.0)
-    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, cinco, seis, 6.0)
+    println(grafo)
+
+    // Verificar a existência de uma aresta
+    println(grafo.procurarAresta(um, quatro))
+    println(grafo.procurarAresta(dois, zero))
+
+    println(grafo.calcularGrau(um))
 
     val (custo, arvoreGeradora) = Prim.produzirArvoreGeradoreMinima(grafo)
     println("Custo: $custo")
