@@ -131,6 +131,7 @@ fun main() {
     println(grafo.procurarAresta(dois, zero))
 
     println(grafo.calcularGrau(um))
+    println(grafo.recuperarAdjacencias(quatro))
 
     val (custo, arvoreGeradora) = Prim.produzirArvoreGeradoreMinima(grafo)
     println("Custo: $custo")
