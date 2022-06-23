@@ -58,6 +58,14 @@ class ListaAdjacencia<T>: Grafo<T> {
         return adjacencias[origem] ?: arrayListOf()
     }
 
+    // Se a aresta existe, retorne a aresta
+    fun procurarAresta(origem: Vertice<T>, destino: Vertice<T>): Aresta<T>? {
+        val todasArestas = arestas(origem)
+        return todasArestas.firstOrNull { aresta ->
+            aresta.destino == destino
+        }
+    }
+
     // Encontra o primeira aresta da fonte para o destino. Se essa aresta existir,
     // seu peso é retornado. Caso contrário, nulo é retornado
     override fun peso(origem: Vertice<T>, destino: Vertice<T>): Double? {
