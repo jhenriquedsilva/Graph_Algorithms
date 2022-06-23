@@ -10,6 +10,17 @@ class ListaAdjacencia<T>: Grafo<T> {
     private val adjacencias: HashMap<Vertice<T>, ArrayList<Aresta<T>>> = HashMap()
     override val todosVertices: ArrayList<Vertice<T>>
         get() = ArrayList(adjacencias.keys)
+    val vertices: Set<Vertice<T>>
+    // Para construir uma árvore geradora, é necessário ter acesso a todos
+    // os vértices
+    get() = adjacencias.keys
+
+    // Copia todos os vértices para um novo grafo
+    fun copiarVertices(grafo: ListaAdjacencia<T>) {
+        grafo.vertices.forEach {vertice ->
+            adjacencias[vertice] = arrayListOf()
+        }
+    }
 
     // Cria um vértice e o retorna
     override fun criarVertice(dado: T): Vertice<T> {
