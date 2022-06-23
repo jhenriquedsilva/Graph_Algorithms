@@ -2,13 +2,13 @@ package grafo_com_matriz_de_adjacencia
 
 import componentes_grafo.Aresta
 import componentes_grafo.Grafo
-import componentes_grafo.TipoAresta
+import componentes_grafo.TipoGrafo
 import componentes_grafo.Vertice
 
 
 // Pode ser usado 0 em vez de null
 
-class MatrizAdjacencia<T>: Grafo<T> {
+class MatrizAdjacencia<T>(val tipoGrafo: TipoGrafo): Grafo<T> {
     private val vertices = arrayListOf<Vertice<T>>()
     override val todosVertices: ArrayList<Vertice<T>>
         get() = vertices
@@ -59,10 +59,11 @@ class MatrizAdjacencia<T>: Grafo<T> {
         adicionarArestaDirecionada(destino, origem, peso)
     }
 
-    override fun adicionar(aresta: TipoAresta, origem: Vertice<T>, destino: Vertice<T>, peso: Double?) {
-        when (aresta) {
-            TipoAresta.DIRECIONADO -> adicionarArestaDirecionada(origem, destino, peso)
-            TipoAresta.NAO_DIRECIONADO -> adicionarArestaNaoDirecionada(origem, destino, peso)
+    override fun adicionar(origem: Vertice<T>, destino: Vertice<T>, peso: Double?) {
+        if (tipoGrafo == TipoGrafo.DIRECIONADO) {
+            adicionarArestaDirecionada(origem, destino, peso)
+        } else {
+            adicionarArestaNaoDirecionada(origem, destino, peso)
         }
     }
 
