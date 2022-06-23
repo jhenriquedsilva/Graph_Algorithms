@@ -19,7 +19,7 @@ interface Grafo<T> {
     fun adicionarArestaNaoDirecionada(origem: Vertice<T>, destino: Vertice<T>, peso: Double?)
 
     // Adiciona uma aresta entre dois vértices
-    fun adicionar(aresta: TipoAresta, origem: Vertice<T>, destino: Vertice<T>, peso: Double?)
+    fun adicionar(origem: Vertice<T>, destino: Vertice<T>, peso: Double?)
 
     // Retorna uma lista com as arestas que saem do vértice
     fun arestas(origem: Vertice<T>): ArrayList<Aresta<T>>
