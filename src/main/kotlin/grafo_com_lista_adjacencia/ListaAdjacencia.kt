@@ -85,6 +85,37 @@ class ListaAdjacencia<T>(val tipoGrafo: TipoGrafo): Grafo<T> {
 
     }
 
+    fun recuperarAdjacencias(verticeEscolhido: Vertice<T>): ArrayList<Vertice<T>> {
+        val verticesAdjacencentes = arrayListOf<Vertice<T>>()
+
+        if (tipoGrafo == TipoGrafo.NAO_DIRECIONADO) {
+            arestas(verticeEscolhido).forEach { aresta ->
+                verticesAdjacencentes.add(aresta.destino)
+            }
+            return verticesAdjacencentes
+        }
+
+        adjacencias.forEach { vertice, arestas ->
+            if (verticeEscolhido == vertice) {
+                arestas.forEach { aresta ->
+                    if (aresta.destino !in verticesAdjacencentes) {
+                        verticesAdjacencentes.add(aresta.destino)
+                    }
+                }
+            } else {
+                arestas.forEach { aresta ->
+                    if (aresta.destino == verticeEscolhido) {
+                        if (aresta.destino !in verticesAdjacencentes) {
+                            verticesAdjacencentes.add(aresta.origem)
+                        }
+                    }
+                }
+            }
+        }
+        return verticesAdjacencentes
+
+    }
+
     // Encontra o primeira aresta da fonte para o destino. Se essa aresta existir,
     // seu peso é retornado. Caso contrário, nulo é retornado
     override fun peso(origem: Vertice<T>, destino: Vertice<T>): Double? {
