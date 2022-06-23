@@ -66,7 +66,7 @@ class ListaAdjacencia<T>(val tipoGrafo: TipoGrafo): Grafo<T> {
 
     fun calcularGrau(verticeEscolhido: Vertice<T>): Int {
         if (tipoGrafo == TipoGrafo.NAO_DIRECIONADO) {
-            return adjacencias[verticeEscolhido]?.size ?: 0
+            return arestas(verticeEscolhido).size
         }
 
         var grau = 0
