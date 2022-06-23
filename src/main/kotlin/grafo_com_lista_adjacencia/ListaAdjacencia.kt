@@ -1,11 +1,8 @@
 package grafo_com_lista_adjacencia
 
-import componentes_grafo.Aresta
-import componentes_grafo.Grafo
-import componentes_grafo.TipoAresta
-import componentes_grafo.Vertice
+import componentes_grafo.*
 
-class ListaAdjacencia<T>: Grafo<T> {
+class ListaAdjacencia<T>(val tipoGrafo: TipoGrafo): Grafo<T> {
 
     private val adjacencias: HashMap<Vertice<T>, ArrayList<Aresta<T>>> = HashMap()
     override val todosVertices: ArrayList<Vertice<T>>
@@ -44,10 +41,11 @@ class ListaAdjacencia<T>: Grafo<T> {
     }
 
     // Por meio da reutilizção dos métodos anteriores, cria uma aresta direcionada ou não
-    override fun adicionar(aresta: TipoAresta, origem: Vertice<T>, destino: Vertice<T>, peso: Double?) {
-        when (aresta) {
-            TipoAresta.DIRECIONADO -> adicionarArestaDirecionada(origem, destino, peso)
-            TipoAresta.NAO_DIRECIONADO -> adicionarArestaNaoDirecionada(origem, destino, peso)
+    override fun adicionar(origem: Vertice<T>, destino: Vertice<T>, peso: Double?) {
+        if (tipoGrafo == TipoGrafo.DIRECIONADO) {
+            adicionarArestaDirecionada(origem, destino, peso)
+        } else {
+            adicionarArestaNaoDirecionada(origem, destino, peso)
         }
     }
 
@@ -64,6 +62,27 @@ class ListaAdjacencia<T>: Grafo<T> {
         return todasArestas.firstOrNull { aresta ->
             aresta.destino == destino
         }
+    }
+
+    fun calcularGrau(verticeEscolhido: Vertice<T>): Int {
+        if (tipoGrafo == TipoGrafo.NAO_DIRECIONADO) {
+            return adjacencias[verticeEscolhido]?.size ?: 0
+        }
+
+        var grau = 0
+        adjacencias.forEach { vertice, arestas ->
+            if (verticeEscolhido == vertice) {
+                grau += arestas.size
+            } else {
+                arestas.forEach { aresta ->
+                    if (aresta.destino == verticeEscolhido) {
+                        grau += 1
+                    }
+                }
+            }
+        }
+        return grau
+
     }
 
     // Encontra o primeira aresta da fonte para o destino. Se essa aresta existir,
