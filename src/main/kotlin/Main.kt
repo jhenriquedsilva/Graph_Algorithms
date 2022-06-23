@@ -106,7 +106,7 @@ fun main() {
 //        println("${aresta.origem.dado} --|${aresta.peso ?: 0.0}|--> ${aresta.destino.dado}")
 //    }
 
-    val grafo = ListaAdjacencia<Int>(TipoGrafo.NAO_DIRECIONADO)
+    val grafo = ListaAdjacencia<Int>(TipoGrafo.DIRECIONADO)
     val zero = grafo.criarVertice(0)
     val um = grafo.criarVertice(1)
     val dois = grafo.criarVertice(2)
