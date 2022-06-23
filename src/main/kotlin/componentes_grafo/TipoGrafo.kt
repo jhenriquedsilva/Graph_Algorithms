@@ -1,6 +1,6 @@
 package componentes_grafo
 
-enum class TipoAresta {
+enum class TipoGrafo {
     DIRECIONADO,
     NAO_DIRECIONADO
 }
