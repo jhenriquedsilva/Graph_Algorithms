@@ -9,3 +9,4 @@ libraries/workspace.xml
 /out/production/graph_algorithms/estruturas_de_dados_auxiliares/*.class
 /out/production/graph_algorithms/dijkstra/estruturas_de_dados_auxiliares/*.class
 /out/production/graph_algorithms/dijkstra/*.class
+/out/production/graph_algorithms/prim/*.class

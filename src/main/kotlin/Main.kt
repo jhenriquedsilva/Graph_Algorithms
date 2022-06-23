@@ -1,6 +1,6 @@
 import componentes_grafo.TipoAresta
-import dijkstra.Dijkstra
 import grafo_com_lista_adjacencia.ListaAdjacencia
+import prim.Prim
 
 fun main() {
 //    val graph = ListaAdjacencia<String>()
@@ -73,35 +73,59 @@ fun main() {
 //        println(vertice.dado)
 //    }
 
-    val grafo = ListaAdjacencia<String>()
-    val a = grafo.criarVertice("A")
-    val b = grafo.criarVertice("B")
-    val c = grafo.criarVertice("C")
-    val d = grafo.criarVertice("D")
-    val e = grafo.criarVertice("E")
-    val f = grafo.criarVertice("F")
-    val g = grafo.criarVertice("G")
-    val h = grafo.criarVertice("H")
+//    val grafo = ListaAdjacencia<String>()
+//    val a = grafo.criarVertice("A")
+//    val b = grafo.criarVertice("B")
+//    val c = grafo.criarVertice("C")
+//    val d = grafo.criarVertice("D")
+//    val e = grafo.criarVertice("E")
+//    val f = grafo.criarVertice("F")
+//    val g = grafo.criarVertice("G")
+//    val h = grafo.criarVertice("H")
+//
+//    grafo.adicionar(TipoAresta.DIRECIONADO, a, b, 8.0)
+//    grafo.adicionar(TipoAresta.DIRECIONADO, a, f, 9.0)
+//    grafo.adicionar(TipoAresta.DIRECIONADO, a, g, 1.0)
+//    grafo.adicionar(TipoAresta.DIRECIONADO, b, f, 3.0)
+//    grafo.adicionar(TipoAresta.DIRECIONADO, b, e, 1.0)
+//    grafo.adicionar(TipoAresta.DIRECIONADO, f, a, 2.0)
+//    grafo.adicionar(TipoAresta.DIRECIONADO, h, f, 2.0)
+//    grafo.adicionar(TipoAresta.DIRECIONADO, h, g, 5.0)
+//    grafo.adicionar(TipoAresta.DIRECIONADO, g, c, 3.0)
+//    grafo.adicionar(TipoAresta.DIRECIONADO, c, e, 1.0)
+//    grafo.adicionar(TipoAresta.DIRECIONADO, c, b, 3.0)
+//    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, e, c, 8.0)
+//    grafo.adicionar(TipoAresta.DIRECIONADO, e, b, 1.0)
+//    grafo.adicionar(TipoAresta.DIRECIONADO, e, d, 2.0)
+//
+//    val dijkstra = Dijkstra(grafo)
+//    val caminhosIniciandoNoVerticeA = dijkstra.calcularCaminhoMaisCurto(g)
+//    val caminho = dijkstra.calcularCaminhoMaisCurto(a, caminhosIniciandoNoVerticeA)
+//    caminho.reversed().forEach { aresta ->
+//        println("${aresta.origem.dado} --|${aresta.peso ?: 0.0}|--> ${aresta.destino.dado}")
+//    }
 
-    grafo.adicionar(TipoAresta.DIRECIONADO, a, b, 8.0)
-    grafo.adicionar(TipoAresta.DIRECIONADO, a, f, 9.0)
-    grafo.adicionar(TipoAresta.DIRECIONADO, a, g, 1.0)
-    grafo.adicionar(TipoAresta.DIRECIONADO, b, f, 3.0)
-    grafo.adicionar(TipoAresta.DIRECIONADO, b, e, 1.0)
-    grafo.adicionar(TipoAresta.DIRECIONADO, f, a, 2.0)
-    grafo.adicionar(TipoAresta.DIRECIONADO, h, f, 2.0)
-    grafo.adicionar(TipoAresta.DIRECIONADO, h, g, 5.0)
-    grafo.adicionar(TipoAresta.DIRECIONADO, g, c, 3.0)
-    grafo.adicionar(TipoAresta.DIRECIONADO, c, e, 1.0)
-    grafo.adicionar(TipoAresta.DIRECIONADO, c, b, 3.0)
-    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, e, c, 8.0)
-    grafo.adicionar(TipoAresta.DIRECIONADO, e, b, 1.0)
-    grafo.adicionar(TipoAresta.DIRECIONADO, e, d, 2.0)
+    val grafo = ListaAdjacencia<Int>()
+    val um = grafo.criarVertice(1)
+    val dois = grafo.criarVertice(2)
+    val tres = grafo.criarVertice(3)
+    val quatro = grafo.criarVertice(4)
+    val cinco = grafo.criarVertice(5)
+    val seis = grafo.criarVertice(6)
 
-    val dijkstra = Dijkstra(grafo)
-    val caminhosIniciandoNoVerticeA = dijkstra.calcularCaminhoMaisCurto(g)
-    val caminho = dijkstra.calcularCaminhoMaisCurto(a, caminhosIniciandoNoVerticeA)
-    caminho.reversed().forEach { aresta ->
-        println("${aresta.origem.dado} --|${aresta.peso ?: 0.0}|--> ${aresta.destino.dado}")
-    }
+    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, um, dois, 6.0)
+    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, um, tres, 1.0)
+    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, um, quatro, 5.0)
+    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, dois, tres, 5.0)
+    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, dois, cinco, 3.0)
+    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, tres, quatro, 5.0)
+    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, tres, cinco, 6.0)
+    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, tres, seis, 4.0)
+    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, quatro, seis, 2.0)
+    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, cinco, seis, 6.0)
+
+    val (custo, arvoreGeradora) = Prim.produzirArvoreGeradoreMinima(grafo)
+    println("Custo: $custo")
+    println("Árvore Geradora: ")
+    println(arvoreGeradora)
 }
