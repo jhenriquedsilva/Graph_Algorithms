@@ -2,7 +2,7 @@ package prim
 
 import componentes_grafo.Aresta
 import componentes_grafo.Grafo
-import componentes_grafo.TipoAresta
+import componentes_grafo.TipoGrafo
 import componentes_grafo.Vertice
 import dijkstra.estruturas_de_dados_auxiliares.ComparatorPriorityQueueImpl
 import dijkstra.estruturas_de_dados_auxiliares.ListaPrioridadeAbstrata
@@ -35,7 +35,7 @@ object Prim {
     ): Pair<Double, ListaAdjacencia<T>> {
         var custo = 0.0
         // Este grafo será a árvore geradora mínima
-        val arvoreGeradora = ListaAdjacencia<T>()
+        val arvoreGeradora = ListaAdjacencia<T>(TipoGrafo.NAO_DIRECIONADO)
         // Todos os vértices que já foram visitados
         val visitados = mutableSetOf<Vertice<T>>()
         // O comparador é sempre usado para a fila de prioridade
@@ -70,8 +70,7 @@ object Prim {
             // Adiciona o peso daresta ao custo total
             custo += arestaDeMenorPeso.peso ?: 0.0
             // Adicionar a aresta de menor peso a árvore geradora
-            arvoreGeradora.adicionar(
-                TipoAresta.NAO_DIRECIONADO, arestaDeMenorPeso.origem,
+            arvoreGeradora.adicionar(arestaDeMenorPeso.origem,
                 arestaDeMenorPeso.destino, arestaDeMenorPeso.peso
             )
             // Adicionar as arestas disponíveis do vértice atual
