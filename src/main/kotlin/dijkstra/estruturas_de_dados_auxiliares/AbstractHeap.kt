@@ -12,8 +12,8 @@ abstract class AbstractHeap<T> : Heap<T> {
     override fun peek(): T? = elements.first()
 
     override fun insert(element: T) {
-        elements.add(element) // 1
-        siftUp(count - 1) // 2
+        elements.add(element)
+        siftUp(count - 1)
     }
 
     private fun siftUp(index: Int) {
@@ -27,47 +27,47 @@ abstract class AbstractHeap<T> : Heap<T> {
     }
 
     override fun remove(): T? {
-        if (isEmpty) return null // 1
+        if (isEmpty) return null
 
-        Collections.swap(elements, 0, count - 1) // 2
-        val item = elements.removeAt(count - 1) // 3
-        siftDown(0) // 4
+        Collections.swap(elements, 0, count - 1)
+        val item = elements.removeAt(count - 1)
+        siftDown(0)
         return item
     }
 
     private fun siftDown(index: Int) {
-        var parent = index // 1
-        while (true) { // 2
-            val left = leftChildIndex(parent) //3
+        var parent = index
+        while (true) {
+            val left = leftChildIndex(parent)
             val right = rightChildIndex(parent)
-            var candidate = parent // 4
+            var candidate = parent
             if (left < count &&
                 compare(elements[left], elements[candidate]) > 0
             ) {
-                candidate = left //5
+                candidate = left
             }
             if (right < count &&
                 compare(elements[right], elements[candidate]) > 0
             ) {
-                candidate = right // 6
+                candidate = right
             }
             if (candidate == parent) {
-                return // 7
+                return
             }
-            Collections.swap(elements, parent, candidate) // 8
+            Collections.swap(elements, parent, candidate)
             parent = candidate
         }
     }
 
     override fun remove(index: Int): T? {
-        if (index >= count) return null // 1
+        if (index >= count) return null
 
         return if (index == count - 1) {
-            elements.removeAt(count - 1) // 2
+            elements.removeAt(count - 1)
         } else {
-            Collections.swap(elements, index, count - 1) // 3
-            val item = elements.removeAt(count - 1) // 4
-            siftDown(index) // 5
+            Collections.swap(elements, index, count - 1)
+            val item = elements.removeAt(count - 1)
+            siftDown(index)
             siftUp(index)
             item
         }
@@ -75,19 +75,19 @@ abstract class AbstractHeap<T> : Heap<T> {
 
     private fun index(element: T, i: Int): Int? {
         if (i >= count) {
-            return null // 1
+            return null
         }
         if (compare(element, elements[i]) > 0) {
-            return null // 2
+            return null
         }
         if (element == elements[i]) {
-            return i // 3
+            return i
         }
         val leftChildIndex = index(element, leftChildIndex(i))
-        if (leftChildIndex != null) return leftChildIndex // 4
+        if (leftChildIndex != null) return leftChildIndex
         val rightChildIndex = index(element, rightChildIndex(i))
-        if (rightChildIndex != null) return rightChildIndex // 5
-        return null // 6
+        if (rightChildIndex != null) return rightChildIndex
+        return null
     }
 
     protected fun heapify(values: ArrayList<T>) {

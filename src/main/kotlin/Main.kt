@@ -1,4 +1,5 @@
 import componentes_grafo.TipoGrafo
+import dijkstra.Dijkstra
 import grafo_com_lista_adjacencia.ListaAdjacencia
 import grafo_com_matriz_de_adjacencia.MatrizAdjacencia
 import prim.Prim
@@ -74,67 +75,66 @@ fun main() {
 //        println(vertice.dado)
 //    }
 
-//    val grafo = ListaAdjacencia<String>()
-//    val a = grafo.criarVertice("A")
-//    val b = grafo.criarVertice("B")
-//    val c = grafo.criarVertice("C")
-//    val d = grafo.criarVertice("D")
-//    val e = grafo.criarVertice("E")
-//    val f = grafo.criarVertice("F")
-//    val g = grafo.criarVertice("G")
-//    val h = grafo.criarVertice("H")
+    val grafo = ListaAdjacencia<String>(TipoGrafo.DIRECIONADO)
+    val a = grafo.criarVertice("A")
+    val b = grafo.criarVertice("B")
+    val c = grafo.criarVertice("C")
+    val d = grafo.criarVertice("D")
+    val e = grafo.criarVertice("E")
+    val f = grafo.criarVertice("F")
+    val g = grafo.criarVertice("G")
+    val h = grafo.criarVertice("H")
+
+    grafo.adicionar( a, b, 8.0)
+    grafo.adicionar( a, f, 9.0)
+    grafo.adicionar( a, g, 1.0)
+    grafo.adicionar( b, f, 3.0)
+    grafo.adicionar( b, e, 1.0)
+    grafo.adicionar( f, a, 2.0)
+    grafo.adicionar( h, f, 2.0)
+    grafo.adicionar( h, g, 5.0)
+    grafo.adicionar( g, c, 3.0)
+    grafo.adicionar( c, e, 1.0)
+    grafo.adicionar( c, b, 3.0)
+    grafo.adicionar( e, b, 1.0)
+    grafo.adicionar( e, d, 2.0)
+
+    val dijkstra = Dijkstra(grafo)
+    val caminhosIniciandoNoVerticeA = dijkstra.calcularCaminhoMaisCurto(a)
+    val caminho = dijkstra.calcularCaminhoMaisCurto(g, caminhosIniciandoNoVerticeA)
+    caminho.reversed().forEach { aresta ->
+        println("${aresta.origem.dado} --|${aresta.peso ?: 0.0}|--> ${aresta.destino.dado}")
+    }
+
+//    val grafo = ListaAdjacencia<Int>(TipoGrafo.DIRECIONADO)
+//    val zero = grafo.criarVertice(0)
+//    val um = grafo.criarVertice(1)
+//    val dois = grafo.criarVertice(2)
+//    val tres = grafo.criarVertice(3)
+//    val quatro = grafo.criarVertice(4)
+//    val cinco = grafo.criarVertice(5)
+//    grafo.adicionar(zero, dois, 1.0)
+//    grafo.adicionar( zero, tres, 5.0)
+//    grafo.adicionar( zero, um, 6.0)
+//    grafo.adicionar(dois, tres, 2.0)
+//    grafo.adicionar(dois, um, 2.0)
+//    grafo.adicionar(dois, quatro, 6.0)
+//    grafo.adicionar(dois, cinco, 4.0)
+//    grafo.adicionar(tres, cinco, 4.0)
+//    grafo.adicionar(um, quatro, 5.0)
+//    grafo.adicionar(quatro, cinco, 3.0)
 //
-//    grafo.adicionar(TipoAresta.DIRECIONADO, a, b, 8.0)
-//    grafo.adicionar(TipoAresta.DIRECIONADO, a, f, 9.0)
-//    grafo.adicionar(TipoAresta.DIRECIONADO, a, g, 1.0)
-//    grafo.adicionar(TipoAresta.DIRECIONADO, b, f, 3.0)
-//    grafo.adicionar(TipoAresta.DIRECIONADO, b, e, 1.0)
-//    grafo.adicionar(TipoAresta.DIRECIONADO, f, a, 2.0)
-//    grafo.adicionar(TipoAresta.DIRECIONADO, h, f, 2.0)
-//    grafo.adicionar(TipoAresta.DIRECIONADO, h, g, 5.0)
-//    grafo.adicionar(TipoAresta.DIRECIONADO, g, c, 3.0)
-//    grafo.adicionar(TipoAresta.DIRECIONADO, c, e, 1.0)
-//    grafo.adicionar(TipoAresta.DIRECIONADO, c, b, 3.0)
-//    grafo.adicionar(TipoAresta.NAO_DIRECIONADO, e, c, 8.0)
-//    grafo.adicionar(TipoAresta.DIRECIONADO, e, b, 1.0)
-//    grafo.adicionar(TipoAresta.DIRECIONADO, e, d, 2.0)
+//    println(grafo)
 //
-//    val dijkstra = Dijkstra(grafo)
-//    val caminhosIniciandoNoVerticeA = dijkstra.calcularCaminhoMaisCurto(g)
-//    val caminho = dijkstra.calcularCaminhoMaisCurto(a, caminhosIniciandoNoVerticeA)
-//    caminho.reversed().forEach { aresta ->
-//        println("${aresta.origem.dado} --|${aresta.peso ?: 0.0}|--> ${aresta.destino.dado}")
-//    }
-
-    val grafo = ListaAdjacencia<Int>(TipoGrafo.DIRECIONADO)
-    val zero = grafo.criarVertice(0)
-    val um = grafo.criarVertice(1)
-    val dois = grafo.criarVertice(2)
-    val tres = grafo.criarVertice(3)
-    val quatro = grafo.criarVertice(4)
-    val cinco = grafo.criarVertice(5)
-    grafo.adicionar(zero, dois, 1.0)
-    grafo.adicionar( zero, tres, 5.0)
-    grafo.adicionar( zero, um, 6.0)
-    grafo.adicionar(dois, tres, 2.0)
-    grafo.adicionar(dois, um, 2.0)
-    grafo.adicionar(dois, quatro, 6.0)
-    grafo.adicionar(dois, cinco, 4.0)
-    grafo.adicionar(tres, cinco, 4.0)
-    grafo.adicionar(um, quatro, 5.0)
-    grafo.adicionar(quatro, cinco, 3.0)
-
-    println(grafo)
-
-    // Verificar a existência de uma aresta
-    println(grafo.procurarAresta(um, quatro))
-    println(grafo.procurarAresta(dois, zero))
-
-    println(grafo.calcularGrau(um))
-    println(grafo.recuperarAdjacencias(quatro))
-
-    val (custo, arvoreGeradora) = Prim.produzirArvoreGeradoreMinima(grafo)
-    println("Custo: $custo")
-    println("Árvore Geradora: ")
-    println(arvoreGeradora)
+//    // Verificar a existência de uma aresta
+//    println(grafo.procurarAresta(um, quatro))
+//    println(grafo.procurarAresta(dois, zero))
+//
+//    println(grafo.calcularGrau(um))
+//    println(grafo.recuperarAdjacencias(quatro))
+//
+//    val (custo, arvoreGeradora) = Prim.produzirArvoreGeradoreMinima(grafo)
+//    println("Custo: $custo")
+//    println("Árvore Geradora: ")
+//    println(arvoreGeradora)
 }

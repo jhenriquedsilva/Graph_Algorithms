@@ -57,9 +57,12 @@ class Dijkstra<T>(private val grafo: ListaAdjacencia<T>) {
     fun calcularCaminhoMaisCurto(origem: Vertice<T>): HashMap<Vertice<T>, Visita<T>> {
         // Cria os caminhos
         val caminhos: HashMap<Vertice<T>, Visita<T>> = HashMap()
-        // Inicializa os caminhos os caminhos com ovértice origem
+        // Inicializa os caminhos com o vértice origem
         caminhos[origem] = Visita(TipoVisita.INICIO)
 
+        // Se o primeiro objeto é menor que o segunso objeto, retorna um número negativo
+        // Se for igual, retorna zero
+        // Se for maior, retorna um número positivo
         val comparadorDistancia = Comparator<Vertice<T>> { primeiro, segundo ->
             (distancia(segundo, caminhos) - distancia(primeiro, caminhos)).toInt()
         }

@@ -15,6 +15,5 @@ class ComparatorHeapImpl<T>(
         }
     }
 
-    override fun compare(a: T, b: T): Int =
-        comparator.compare(a, b)
+    override fun compare(a: T, b: T): Int = comparator.compare(a, b)
 }
